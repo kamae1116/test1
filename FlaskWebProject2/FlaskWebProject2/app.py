@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 """
 This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
 
-from flask import Flask, request, render_template
+from flask import Flask
 app = Flask(__name__)
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
@@ -22,18 +21,6 @@ def result():
     article = request.form["article"]
     name = request.form["name"]
     return render_template("form.html", message = message, article = article, name = name)
-
-#@app.route("/index") 
-#def index():
-#	return render_template("index.html") 
-
-
-#@app.route("/result", methods=["POST"])
-#def result():
-#    message = "This is paiza"
-#    article = request.form["article"]
-#    name = request.form["name"]
-#    return render_template("form.html", message = message, article = article, name = name)
 
 if __name__ == '__main__':
     import os
