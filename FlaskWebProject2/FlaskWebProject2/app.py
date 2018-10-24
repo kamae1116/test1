@@ -3,7 +3,7 @@ This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
 
-from flask import Flask
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
@@ -14,6 +14,7 @@ wsgi_app = app.wsgi_app
 def hello():
 	message = "Hello world"
 	return render_template("form.html", message = message)
+	#return "hello"
 
 @app.route("/result", methods = ["POST"])
 def result():
